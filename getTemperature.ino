@@ -55,9 +55,9 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   gettemperature();
-  InfluxData row("weather");
+  InfluxData row("weather-plants");
   row.addTag("room", "plants");
-  row.addTag("sensor", "one");
+  row.addTag("sensor", DHTTYPE);
   row.addValue("temperature", temp_c);
   row.addValue("humidity", humidity);
   influx.write(row);
